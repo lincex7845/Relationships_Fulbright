@@ -19,17 +19,19 @@
     <option value="70decade.html">Decadas 70's</option>
     <option value="80decade.html">Decadas 80's</option>
     <option value="90decade.html">Decadas 90's</option>
-    <option value="2kdecade.html">Decadas 2000's</option>
-    <option value="2k-15decade.html">2010 - 2015</option>
+    <option value="2Kdecade.html">Decadas 2000's</option>
+    <option value="2K-15decade.html">2010 - 2015</option>
   </select>
   <div id="panel">
   </div> 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
   <script>
-    $('#decada').change(function(){
-        var decade = this.value;
+    $('#decada').selectmenu({
+      change: function(event, data){
+        var decade = data.item.value;
         draw(decade);
+      }
     });
     function draw(decade){
       var iframe = '<iframe src="' + decade + '"></iframe>';
